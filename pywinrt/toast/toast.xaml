@@ -1,0 +1,8 @@
+<toast>
+<visual>
+  <binding template="ToastImageAndText01" description="An image and a single string wrapped across a maximum of three lines of text.">
+	<image id="1" src="" name="Image" />
+	<text id="1" name="Text"></text>
+  </binding>
+</visual>
+</toast>
