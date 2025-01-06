@@ -3,6 +3,9 @@ from winrt.microsoft.ui.windowing import AppWindow
 from comtypes import COINIT_APARTMENTTHREADED, CoInitializeEx, CoUninitialize # pip install comtypes
 from comtypes.messageloop import _messageloop
 from ctypes import windll, c_int
+# for build - manually add modules called from module for exe builder parser
+import uuid
+import winrt.windows.foundation
 
 PostQuitMessage = windll.user32.PostQuitMessage
 PostQuitMessage.argtypes = [c_int]

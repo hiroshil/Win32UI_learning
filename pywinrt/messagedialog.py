@@ -2,6 +2,8 @@ import asyncio
 import tkinter as tk
 from winrt.windows.ui.popups import MessageDialog
 from winrt._winrt import initialize_with_window
+# for build - manually add modules called from module for exe builder parser
+import winrt.windows.foundation
 # based on https://github.com/ynkdir/py-win32more/blob/6650acc3c8010eba3a3c40e07ed62842fb113f74/example/winrt_messagedialog.py
 
 

@@ -2,6 +2,8 @@ from winrt.microsoft.windows.applicationmodel.dynamicdependency.bootstrap import
 from winrt.microsoft.windows.appnotifications import AppNotificationManager
 from winrt.microsoft.windows.appnotifications.builder import AppNotificationBuilder
 from comtypes import COINIT_APARTMENTTHREADED, CoInitializeEx, CoUninitialize # pip install comtypes
+# for build - manually add modules called from module for exe builder parser
+import uuid
 # based on https://github.com/ynkdir/py-win32more/blob/6650acc3c8010eba3a3c40e07ed62842fb113f74/example/appsdk_notification.py
 
 
