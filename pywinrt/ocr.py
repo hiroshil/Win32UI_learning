@@ -3,7 +3,6 @@ import tkinter as tk
 
 from winrt.windows.graphics.imaging import BitmapDecoder
 from winrt.windows.media.ocr import OcrEngine
-from winrt.windows.storage import FileAccessMode
 from winrt.windows.storage.pickers import FileOpenPicker
 from winrt.windows.ui.popups import MessageDialog
 from winrt._winrt import initialize_with_window
@@ -11,7 +10,9 @@ from winrt._winrt import initialize_with_window
 import winrt.windows.foundation
 import winrt.windows.foundation.collections
 import winrt.windows.globalization
+import winrt.windows.storage
 import winrt.windows.storage.streams
+# based on https://github.com/ynkdir/py-win32more/blob/6650acc3c8010eba3a3c40e07ed62842fb113f74/example/winrt_ocr.py
 
 mainhwnd = None
 
@@ -30,8 +31,8 @@ async def open_file(filter):
 
 
 async def read_image(storage_file):
-    bitmap = await BitmapDecoder.create_async(
-        BitmapDecoder.png_decoder_id, await storage_file.open_async(FileAccessMode.READ)
+    bitmap = await BitmapDecoder.create_with_id_async(
+        BitmapDecoder.png_decoder_id, await storage_file.open_read_async()
     )
     return await bitmap.get_software_bitmap_async()
 
